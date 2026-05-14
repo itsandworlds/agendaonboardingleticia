@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TRINCA Experience · Letícia</title>
+<meta name="description" content="Sua jornada de 90 dias na TRINCA. We build what's next." />
+
+<style>
+  @font-face { font-family:'Vinila'; src:url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fontes/Vinila-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
+  @font-face { font-family:'Vinila'; src:url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fontes/Vinila-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
+  @font-face { font-family:'Vinila'; src:url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fontes/Vinila-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+  :root {
+    --azul: #0A00BE;
+    --azul-soft: rgba(10,0,190,0.08);
+    --azul-mid: rgba(10,0,190,0.25);
+    --azul-light: #E8E6FF;
+    --azul-glow: rgba(10,0,190,0.45);
+    --preto: #000000;
+    --branco: #FFFFFF;
+    --off-white: #FAFAF8;
+    --cinza-100: #F2F2F2;
+    --cinza-200: #E5E5E5;
+    --cinza-400: #9B9B9B;
+    --cinza-600: #4A4A4A;
+    --gutter: clamp(20px, 4vw, 64px);
+    --max-w: 1280px;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Vinila', -apple-system, sans-serif;
+    background: var(--off-white);
+    color: var(--preto);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply; opacity: 0.6;
+  }
+
+  .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 2; }
+  section { padding: clamp(80px, 11vw, 140px) 0; position: relative; z-index: 2; }
+
+  h1,h2,h3 { font-weight: 700; letter-spacing: -0.025em; line-height: 1.0; }
+  h1 { font-size: clamp(48px, 9vw, 120px); }
+  h2 { font-size: clamp(36px, 6vw, 72px); }
+  h3 { font-size: clamp(22px, 2.4vw, 32px); }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--azul);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .eyebrow::before {
+    content: ""; width: 8px; height: 8px; background: var(--azul);
+    display: inline-block; animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .lead {
+    font-size: clamp(17px, 1.6vw, 21px); line-height: 1.55;
+    font-weight: 300; color: var(--cinza-600); max-width: 56ch;
+  }
+  .mono { font-family: var(--mono); }
+
+  header.top {
+    position: fixed; top: 0; left: 0;
+    padding: 20px var(--gutter);
+    z-index: 90;
+    display: flex; align-items: center; gap: 16px;
+  }
+  header.top img { height: 32px; display: block; }
+  header.top .tag {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cinza-600);
+    padding: 4px 8px; border: 1px solid var(--cinza-200);
+    background: var(--branco);
+  }
+
+  .hud {
+    position: fixed; top: 16px; right: 16px;
+    z-index: 200;
+    background: var(--preto); color: var(--branco);
+    padding: 14px 20px;
+    display: flex; align-items: center; gap: 18px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05);
+    min-width: 290px;
+  }
+  .hud .lvl-block { display: flex; flex-direction: column; }
+  .hud .lvl-label {
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    opacity: 0.55;
+  }
+  .hud .lvl-val {
+    font-size: 26px; font-weight: 700; line-height: 1; margin-top: 2px;
+    color: var(--azul-light); letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    transition: transform 0.4s cubic-bezier(.2,1.6,.5,1);
+  }
+  .hud .lvl-val.bump { transform: scale(1.25); }
+  .hud .right { flex: 1; }
+  .hud .xpbar {
+    width: 100%; height: 6px; background: rgba(255,255,255,0.12);
+    position: relative; overflow: hidden;
+  }
+  .hud .xpbar::before {
+    content: ""; position: absolute; inset: 0;
+    width: var(--xp, 0%);
+    background: linear-gradient(90deg, var(--azul-light), #FFFFFF);
+    transition: width 0.7s cubic-bezier(.2,.9,.3,1);
+  }
+  .hud .xpbar::after {
+    content: ""; position: absolute; top: 0; bottom: 0;
+    left: var(--xp, 0%);
+    width: 2px; background: var(--branco);
+    box-shadow: 0 0 8px var(--azul-light);
+    transition: left 0.7s cubic-bezier(.2,.9,.3,1);
+  }
+  .hud .narrative {
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.08em;
+    opacity: 0.85; min-height: 14px;
+    font-variant-numeric: tabular-nums;
+  }
+  .hud .narrative .accent { color: var(--azul-light); }
+  @media (max-width: 700px) { .hud { top: 12px; right: 12px; left: 12px; min-width: 0; } }
+
+  .points-fly {
+    position: fixed; z-index: 250;
+    font-family: var(--mono);
+    font-size: 16px; font-weight: 700;
+    color: var(--azul); background: var(--branco);
+    padding: 6px 12px;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(10,0,190,0.35);
+    border: 1px solid var(--azul);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding-top: clamp(110px, 14vw, 170px);
+    padding-bottom: clamp(60px, 8vw, 100px);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    background: var(--off-white);
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 85% 15%, var(--azul-soft) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 10% 85%, var(--azul-soft) 0%, transparent 65%),
+      radial-gradient(circle 300px at 60% 60%, rgba(232,230,255,0.6) 0%, transparent 70%);
+    animation: meshFloat 18s ease-in-out infinite;
+    z-index: 1;
+  }
+  @keyframes meshFloat {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33%     { transform: translate(20px,-15px) scale(1.05); }
+    66%     { transform: translate(-15px,20px) scale(0.98); }
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(10,0,190,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10,0,190,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    z-index: 1; pointer-events: none;
+  }
+
+  .hero .wrap { z-index: 3; }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 80px; }
+  }
+
+  .hero-copy .session-meta {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+    color: var(--cinza-600); text-transform: uppercase;
+  }
+  .hero-copy .session-meta span {
+    padding: 4px 10px; border: 1px solid var(--cinza-200); background: var(--branco);
+  }
+  .hero-copy h1 { margin-top: 12px; animation: fadeUp 0.9s ease-out 0.1s both; }
+  .hero-copy h1 .name {
+    display: block; color: var(--azul);
+    font-style: italic; transform: translateX(-4px);
+  }
+  .hero-copy h1 .name::after {
+    content: "_"; color: var(--azul); margin-left: 4px;
+    animation: caret 1s steps(2) infinite;
+  }
+  @keyframes caret { 50% { opacity: 0; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+  .hero-copy p.lead { margin-top: 32px; animation: fadeUp 0.9s ease-out 0.3s both; }
+  .hero-copy .cta-stack {
+    margin-top: 40px;
+    display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
+    animation: fadeUp 0.9s ease-out 0.5s both;
+  }
+  .start-cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 20px 32px;
+    background: var(--azul); color: var(--branco);
+    font-family: 'Vinila', sans-serif;
+    font-weight: 700; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase;
+    border: none; cursor: pointer;
+    transition: all 0.25s cubic-bezier(.2,.9,.3,1);
+    position: relative; overflow: hidden;
+  }
+  .start-cta::before {
+    content: ""; position: absolute; inset: 0;
+    background: var(--preto);
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(.7,0,.3,1);
+  }
+  .start-cta:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(10,0,190,0.35); }
+  .start-cta:hover::before { transform: translateX(0); }
+  .start-cta span { position: relative; z-index: 2; }
+  .start-cta .arrow {
+    position: relative; z-index: 2;
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .start-cta:hover .arrow { transform: translateX(6px); }
+
+  .tip-pulse {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 11px; color: var(--cinza-600);
+    letter-spacing: 0.08em;
+  }
+  .tip-pulse::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--azul);
+    animation: pulseGlow 1.8s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%,100% { box-shadow: 0 0 0 0 var(--azul-glow); }
+    50%     { box-shadow: 0 0 0 8px transparent; }
+  }
+
+  /* Player card com foto */
+  .player-card { perspective: 1000px; animation: fadeUp 0.9s ease-out 0.4s both; }
+  .player-card-inner {
+    background: var(--preto); color: var(--branco);
+    padding: 8px;
+    transform: rotate(2deg);
+    transition: transform 0.6s cubic-bezier(.2,.9,.3,1);
+    position: relative;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.04);
+  }
+  .player-card:hover .player-card-inner { transform: rotate(0deg) translateY(-4px); }
+  .player-card-inner::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(135deg, transparent 40%, rgba(10,0,190,0.6) 100%);
+    pointer-events: none; opacity: 0.4;
+  }
+  .player-card-body {
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,0.12);
+    position: relative;
+  }
+  .player-card .badge {
+    display: inline-block;
+    background: var(--azul); color: var(--branco);
+    font-family: var(--mono);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 6px 12px;
+  }
+  .player-card .badge::before { content: "★ "; }
+  .player-card .photo-frame {
+    margin-top: 20px;
+    width: 100%; aspect-ratio: 1;
+    background: var(--cinza-100);
+    background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Leticia%20Lopes%20de%20Castro%20Sena%20.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .player-card .photo-frame::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.5) 100%);
+  }
+  .player-card .nome-jogador {
+    margin-top: 20px;
+    font-size: clamp(24px, 3vw, 32px); font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.05;
+  }
+  .player-card .cargo {
+    margin-top: 10px;
+    font-size: 13px; color: rgba(255,255,255,0.7);
+  }
+  .player-card .cargo strong { color: var(--azul-light); }
+  .player-card .stats {
+    margin-top: 24px;
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 12px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 20px;
+  }
+  .player-card .stat-label {
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .player-card .stat-value {
+    margin-top: 4px; font-size: 20px; font-weight: 700; letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .player-card .stat-value.azul { color: var(--azul-light); }
+
+  /* SECTION HEADS */
+  .section-head { max-width: 760px; margin-bottom: 56px; }
+  .section-head h2 { margin-top: 16px; }
+  .section-head h2 em { font-style: italic; color: var(--azul); }
+  .section-head p.lead { margin-top: 20px; }
+
+  /* ALIADOS com fotos */
+  .help-grid {
+    display: grid; gap: 20px; grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .help-grid { grid-template-columns: repeat(3, 1fr); } }
+  .help-card {
+    padding: 32px 28px; background: var(--branco);
+    border: 1px solid var(--cinza-200);
+    transition: all 0.35s cubic-bezier(.2,.9,.3,1);
+    cursor: default; position: relative; overflow: hidden;
+  }
+  .help-card::before {
+    content: ""; position: absolute; top: 0; left: 0;
+    width: 100%; height: 4px; background: var(--azul);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s cubic-bezier(.2,.9,.3,1);
+  }
+  .help-card:hover { border-color: var(--azul); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(10,0,190,0.15); }
+  .help-card:hover::before { transform: scaleX(1); }
+  .help-card .head-row {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 16px;
+  }
+  .help-card .photo {
+    width: 64px; height: 64px;
+    background-size: cover; background-position: center top;
+    background-color: var(--azul-light);
+    flex-shrink: 0;
+    border: 2px solid var(--preto);
+  }
+  .help-card .role-tag {
+    font-family: var(--mono);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--azul);
+  }
+  .help-card .nome { margin-top: 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .help-card .quando { font-size: 14px; line-height: 1.55; color: var(--cinza-600); }
+
+  /* TIME */
+  .team-grid {
+    margin-top: 40px;
+    display: grid; gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  }
+  .person {
+    background: var(--branco); padding: 20px;
+    border: 1px solid var(--cinza-200);
+    transition: all 0.3s cubic-bezier(.2,.9,.3,1);
+    position: relative; cursor: default;
+  }
+  .person:hover {
+    border-color: var(--azul);
+    transform: translateY(-6px) rotate(-1deg);
+    box-shadow: 0 16px 32px rgba(10,0,190,0.18);
+  }
+  .person .photo {
+    width: 64px; height: 64px; border-radius: 50%;
+    background-size: cover; background-position: center top;
+    background-color: var(--cinza-100);
+    margin-bottom: 14px;
+    transition: transform 0.3s ease;
+    border: 2px solid var(--branco);
+    box-shadow: 0 0 0 1px var(--cinza-200);
+  }
+  .person:hover .photo { transform: scale(1.08) rotate(-4deg); box-shadow: 0 0 0 2px var(--azul); }
+  .person.lead-person .photo { box-shadow: 0 0 0 2px var(--azul); }
+  .person .nome { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  .person .role { margin-top: 4px; font-size: 12px; color: var(--cinza-600); font-family: var(--mono); }
+  .person .tag-special {
+    position: absolute; top: 12px; right: 14px;
+    font-family: var(--mono);
+    font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    background: var(--azul); color: var(--branco);
+    padding: 3px 8px;
+  }
+  .person.lead-person .tag-special { background: var(--preto); }
+
+  .team-divider {
+    margin-top: 64px; padding-top: 56px;
+    border-top: 1px solid var(--cinza-200);
+  }
+  .team-divider h3 { margin-bottom: 8px; }
+  .team-divider p.subtitle { font-size: 16px; color: var(--cinza-600); }
+
+  /* AGENDA */
+  .agenda-section { background: var(--branco); }
+  .agenda-alert {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 20px 24px;
+    background: var(--azul-soft);
+    border-left: 4px solid var(--azul);
+    margin-bottom: 48px;
+  }
+  .agenda-alert .ico {
+    width: 24px; height: 24px; background: var(--azul); color: var(--branco);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0;
+  }
+  .agenda-alert strong { font-weight: 700; display: block; margin-bottom: 2px; font-size: 14px; }
+  .agenda-alert p { font-size: 13px; color: var(--cinza-600); }
+
+  .day {
+    border-top: 1px solid var(--cinza-200);
+    padding: 28px 0;
+    transition: background 0.2s ease;
+  }
+  .day:hover { background: var(--off-white); padding-left: 8px; padding-right: 8px; }
+  .day:last-of-type { border-bottom: 1px solid var(--cinza-200); }
+  .day-head {
+    display: flex; align-items: baseline; gap: 18px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .day-date {
+    font-size: clamp(28px, 3vw, 36px); font-weight: 700; letter-spacing: -0.02em;
+    color: var(--azul); font-variant-numeric: tabular-nums;
+  }
+  .day-name {
+    font-family: var(--mono);
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .day-count {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 11px; color: var(--cinza-600); letter-spacing: 0.08em;
+  }
+  .day-count span { color: var(--azul); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  .meeting {
+    display: grid; grid-template-columns: 130px 1fr; gap: 16px;
+    padding: 14px 0;
+    border-top: 1px dashed var(--cinza-200);
+    align-items: baseline;
+    transition: background 0.15s ease;
+  }
+  .meeting:first-of-type { border-top: none; }
+  .meeting:hover { background: var(--azul-soft); padding-left: 8px; padding-right: 8px; }
+  .meeting .time {
+    font-family: var(--mono);
+    font-size: 12px; font-weight: 700; color: var(--cinza-600);
+    font-variant-numeric: tabular-nums; letter-spacing: 0.05em;
+  }
+  .meeting .title { font-weight: 700; font-size: 15px; }
+  .meeting .with { font-size: 12px; color: var(--cinza-600); margin-top: 2px; font-family: var(--mono); }
+
+  /* MAPA */
+  .map { background: var(--off-white); }
+  .map-stage {
+    position: relative;
+    height: clamp(440px, 60vw, 580px);
+    background:
+      radial-gradient(circle at 25% 35%, rgba(10,0,190,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 75% 65%, rgba(10,0,190,0.06) 0%, transparent 50%),
+      var(--branco);
+    border: 1px solid var(--preto);
+    padding: 32px;
+    box-shadow: 8px 8px 0 var(--preto);
+  }
+  .map-stage svg.path-svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .map-stage .path-line { fill: none; stroke: var(--azul); stroke-width: 0.4; stroke-dasharray: 1.5 1.5; opacity: 0.45; }
+  .map-stage .path-line.done { stroke-dasharray: none; opacity: 1; }
+
+  .checkpoint {
+    position: absolute;
+    width: 110px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+  }
+  .checkpoint .badge-circle {
+    width: 84px; height: 84px;
+    margin: 0 auto;
+    background: var(--branco);
+    border: 3px solid var(--cinza-200);
+    border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-weight: 700; line-height: 1;
+    color: var(--cinza-400);
+    transition: all 0.6s cubic-bezier(.2,1.4,.5,1);
+    position: relative;
+    font-variant-numeric: tabular-nums;
+  }
+  .checkpoint .num { font-size: 28px; letter-spacing: -0.02em; }
+  .checkpoint .dias { font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 4px; }
+  .checkpoint .name { margin-top: 14px; font-size: 14px; font-weight: 700; color: var(--cinza-400); transition: color 0.4s ease; }
+  .checkpoint .desc { margin-top: 4px; font-family: var(--mono); font-size: 10px; color: var(--cinza-400); line-height: 1.45; letter-spacing: 0.05em; transition: color 0.4s ease; }
+
+  .checkpoint[data-state="current"] .badge-circle {
+    background: var(--azul); color: var(--branco); border-color: var(--azul);
+    transform: scale(1.12);
+    animation: cpPulse 2.4s ease-in-out infinite;
+  }
+  .checkpoint[data-state="current"] .name,
+  .checkpoint[data-state="current"] .desc { color: var(--preto); }
+  .checkpoint[data-state="done"] .badge-circle {
+    background: var(--preto); color: var(--branco); border-color: var(--preto);
+  }
+  .checkpoint[data-state="done"] .badge-circle::after {
+    content: "✓"; position: absolute; top: -8px; right: -8px;
+    width: 26px; height: 26px; background: var(--azul); color: var(--branco);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; border: 2px solid var(--branco);
+    animation: pop 0.6s cubic-bezier(.2,1.6,.5,1);
+  }
+  @keyframes cpPulse {
+    0%,100% { box-shadow: 0 0 0 8px rgba(10,0,190,0.18), 0 12px 32px rgba(10,0,190,0.4); }
+    50%     { box-shadow: 0 0 0 18px rgba(10,0,190,0.06), 0 12px 32px rgba(10,0,190,0.4); }
+  }
+  @keyframes pop {
+    0%   { transform: scale(0); }
+    70%  { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  /* Avatar com foto da Letícia */
+  .map-walker {
+    position: absolute;
+    width: 56px; height: 56px;
+    transform: translate(-50%, -50%);
+    transition: left 1.4s cubic-bezier(.4,1.3,.5,1), top 1.4s cubic-bezier(.4,1.3,.5,1);
+    pointer-events: none;
+    z-index: 5;
+    animation: walkBounce 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+  }
+  .map-walker .photo-circle {
+    width: 100%; height: 100%; border-radius: 50%;
+    background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Leticia%20Lopes%20de%20Castro%20Sena%20.png');
+    background-size: cover; background-position: center top;
+    border: 3px solid var(--azul);
+    box-shadow: 0 0 0 3px var(--branco), 0 0 20px rgba(10,0,190,0.4);
+  }
+  @keyframes walkBounce {
+    0%,100% { transform: translate(-50%, -50%) scale(1); }
+    50%     { transform: translate(-50%, -55%) scale(1.05); }
+  }
+
+  .cp-1 { left: 14%; top: 38%; }
+  .cp-2 { left: 50%; top: 64%; }
+  .cp-3 { left: 86%; top: 36%; }
+
+  @media (max-width: 720px) {
+    .map-stage { height: auto; padding: 0; border: none; background: transparent; box-shadow: none; }
+    .map-stage svg.path-svg { display: none; }
+    .checkpoint { position: relative; left: auto !important; top: auto !important; transform: none; width: 100%; display: flex; align-items: center; gap: 18px; text-align: left; margin-bottom: 16px; padding: 22px; background: var(--branco); border: 1px solid var(--preto); }
+    .checkpoint .badge-circle { margin: 0; flex-shrink: 0; width: 64px; height: 64px; }
+    .checkpoint .num { font-size: 20px; }
+    .checkpoint .name { margin-top: 0; }
+    .map-walker { display: none; }
+  }
+
+  .map-stats {
+    margin-top: 32px;
+    display: grid; grid-template-columns: repeat(3,1fr);
+    border: 1px solid var(--preto);
+  }
+  .map-stats > div { padding: 20px 24px; border-right: 1px solid var(--preto); }
+  .map-stats > div:last-child { border-right: none; }
+  .map-stats .lab { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cinza-600); }
+  .map-stats .val { margin-top: 8px; font-size: 36px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .map-stats .val .of { font-size: 18px; color: var(--cinza-400); }
+  .map-stats .val.azul { color: var(--azul); }
+  @media (max-width: 720px) {
+    .map-stats { grid-template-columns: 1fr; }
+    .map-stats > div { border-right: none; border-bottom: 1px solid var(--preto); }
+    .map-stats > div:last-child { border-bottom: none; }
+  }
+
+  /* AÇÕES */
+  .quests-section { padding: clamp(80px, 11vw, 140px) 0; background: var(--off-white); }
+  .quest-block {
+    margin-top: 32px;
+    background: var(--branco);
+    border: 1px solid var(--cinza-200);
+    transition: all 0.5s cubic-bezier(.2,.9,.3,1);
+    position: relative;
+  }
+  .quest-block:nth-child(even) { margin-left: clamp(0px, 4vw, 48px); }
+  .quest-block[data-complete="true"] {
+    border-color: var(--azul);
+    box-shadow: -6px 6px 0 var(--azul);
+  }
+  .quest-block.unlocked-anim { animation: blockPop 0.6s cubic-bezier(.2,1.6,.5,1); }
+  @keyframes blockPop {
+    0% { transform: scale(0.98); }
+    60% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+  .quest-block.almost { animation: almostPulse 1.8s ease-in-out infinite; }
+  @keyframes almostPulse {
+    0%,100% { box-shadow: 0 0 0 0 var(--azul-glow); }
+    50%     { box-shadow: 0 0 0 6px rgba(10,0,190,0); }
+  }
+
+  .quest-header {
+    display: flex; align-items: center; gap: 20px;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--cinza-200);
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .quest-icon {
+    width: 52px; height: 52px;
+    background: var(--azul); color: var(--branco);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 22px; flex-shrink: 0;
+    font-variant-numeric: tabular-nums; position: relative;
+  }
+  .quest-block[data-complete="true"] .quest-icon { background: var(--preto); }
+  .quest-block[data-complete="true"] .quest-icon::after {
+    content: "✓"; position: absolute; top: -6px; right: -6px;
+    width: 22px; height: 22px; background: var(--azul); color: var(--branco);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 12px; border: 2px solid var(--branco);
+    animation: pop 0.5s cubic-bezier(.2,1.6,.5,1);
+  }
+  .quest-title-wrap { flex: 1; min-width: 200px; }
+  .quest-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .quest-sub { font-family: var(--mono); font-size: 11px; color: var(--cinza-600); letter-spacing: 0.05em; margin-top: 4px; text-transform: uppercase; }
+
+  .quest-mini-bar-wrap {
+    display: flex; align-items: center; gap: 14px;
+    width: 100%; margin-top: 12px;
+  }
+  .quest-mini-bar {
+    flex: 1; height: 4px;
+    background: var(--cinza-200); position: relative;
+  }
+  .quest-mini-bar::after {
+    content: ""; position: absolute; inset: 0;
+    width: var(--qp, 0%);
+    background: var(--azul);
+    transition: width 0.6s cubic-bezier(.2,.9,.3,1);
+  }
+  .quest-progress {
+    font-family: var(--mono);
+    font-size: 12px; letter-spacing: 0.1em; color: var(--cinza-600);
+    font-weight: 700; flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .quest-progress strong { color: var(--azul); font-size: 16px; }
+
+  .quest-list { padding: 8px 28px 24px; }
+  .quest-item {
+    display: flex; align-items: flex-start; gap: 18px;
+    padding: 16px 0;
+    border-top: 1px dashed var(--cinza-200);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  .quest-item:first-child { border-top: none; }
+  .quest-item:hover { padding-left: 6px; }
+  .quest-item .checkbox {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    border: 2px solid var(--cinza-400);
+    background: var(--branco);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.25s cubic-bezier(.2,1.6,.5,1);
+    margin-top: 2px;
+  }
+  .quest-item:hover .checkbox {
+    border-color: var(--azul); transform: scale(1.1);
+    box-shadow: 0 0 0 4px var(--azul-soft);
+  }
+  .quest-item[data-done="true"] .checkbox {
+    background: var(--azul); border-color: var(--azul); color: var(--branco);
+    animation: checkPop 0.4s cubic-bezier(.2,1.6,.5,1);
+  }
+  .quest-item[data-done="true"] .checkbox::after { content: "✓"; font-size: 15px; font-weight: 700; }
+  @keyframes checkPop {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+  .quest-item[data-done="true"] .quest-text {
+    color: var(--cinza-400);
+    text-decoration: line-through;
+    text-decoration-color: var(--azul);
+    text-decoration-thickness: 2px;
+  }
+  .quest-text { font-size: 16px; font-weight: 400; line-height: 1.45; flex: 1; }
+  .quest-points {
+    font-family: var(--mono);
+    font-size: 11px; color: var(--azul); font-weight: 700; letter-spacing: 0.1em;
+    flex-shrink: 0; padding-top: 5px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .block-connector {
+    height: 48px; width: 2px;
+    background: linear-gradient(180deg, var(--azul), transparent);
+    margin: 0 auto;
+    position: relative;
+  }
+  .block-connector::after {
+    content: "↓";
+    position: absolute;
+    bottom: -8px; left: 50%;
+    transform: translateX(-50%);
+    color: var(--azul); font-size: 20px;
+    animation: bounceDown 1.6s ease-in-out infinite;
+  }
+  @keyframes bounceDown {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%     { transform: translateX(-50%) translateY(6px); }
+  }
+
+  .section-cta {
+    margin-top: 56px;
+    padding: 28px 32px;
+    background: var(--branco);
+    border: 1px solid var(--preto);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+    box-shadow: -6px 6px 0 var(--preto);
+    transition: transform 0.25s ease;
+  }
+  .section-cta:hover { transform: translate(-2px, -2px); box-shadow: -8px 8px 0 var(--preto); }
+  .section-cta .lab {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--cinza-600);
+  }
+  .section-cta .titulo { margin-top: 4px; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  .section-cta .titulo em { font-style: italic; color: var(--azul); }
+  .section-cta a {
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--azul); color: var(--branco);
+    padding: 14px 22px;
+    font-weight: 700; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    transition: transform 0.2s ease;
+  }
+  .section-cta a:hover { transform: translateX(4px); }
+
+  /* FOCO FASE 1 */
+  .focus-card {
+    background: var(--preto); color: var(--branco);
+    padding: clamp(80px, 12vw, 140px) 0;
+    position: relative; overflow: hidden;
+  }
+  .focus-card::before {
+    content: ""; position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(10,0,190,0.35), transparent 70%);
+    border-radius: 50%;
+    animation: focusGlow 6s ease-in-out infinite;
+  }
+  @keyframes focusGlow {
+    0%,100% { transform: scale(1) translate(0,0); opacity: 0.6; }
+    50%     { transform: scale(1.15) translate(-20px,30px); opacity: 0.9; }
+  }
+  .focus-card h2 { color: var(--branco); }
+  .focus-card h2 em { color: var(--azul-light); font-style: italic; }
+  .focus-card .eyebrow { color: var(--azul-light); }
+  .focus-card .eyebrow::before { background: var(--azul-light); }
+  .focus-card p.lead { color: rgba(255,255,255,0.7); }
+  .focus-list {
+    list-style: none; margin-top: 56px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    position: relative; z-index: 2;
+  }
+  .focus-list li {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: baseline;
+    font-size: clamp(18px, 1.9vw, 22px);
+    transition: all 0.3s ease;
+  }
+  .focus-list li:hover { padding-left: 12px; background: rgba(255,255,255,0.03); }
+  .focus-list li:hover span { color: var(--branco); }
+  .focus-list li span {
+    font-family: var(--mono);
+    color: var(--azul-light); font-weight: 700; font-size: 13px; letter-spacing: 0.15em;
+    transition: color 0.3s ease;
+  }
+
+  /* RESPIRE */
+  .breathe { background: var(--off-white); }
+  .breathe-items {
+    display: grid; gap: 28px; grid-template-columns: 1fr; margin-top: 56px;
+  }
+  @media (min-width: 800px) { .breathe-items { grid-template-columns: repeat(3, 1fr); } }
+  .breathe-item {
+    padding: 32px;
+    background: var(--branco);
+    border: 1px solid var(--cinza-200);
+    transition: all 0.3s ease;
+  }
+  .breathe-item:hover { border-color: var(--azul); transform: translateY(-4px); }
+  .breathe-item .num {
+    font-family: var(--mono);
+    font-size: 12px; font-weight: 700; color: var(--azul); letter-spacing: 0.18em;
+  }
+  .breathe-item .titulo { margin-top: 14px; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  .breathe-item .desc { margin-top: 14px; color: var(--cinza-600); font-size: 14px; line-height: 1.6; }
+
+  /* RITUAIS */
+  .rituais-grid {
+    display: grid; gap: 0; grid-template-columns: 1fr;
+    margin-top: 56px;
+    border-top: 1px solid var(--preto);
+    border-left: 1px solid var(--preto);
+  }
+  @media (min-width: 800px) { .rituais-grid { grid-template-columns: repeat(3, 1fr); } }
+  .ritual {
+    padding: 32px 28px;
+    border-right: 1px solid var(--preto);
+    border-bottom: 1px solid var(--preto);
+    transition: all 0.3s cubic-bezier(.2,.9,.3,1);
+    position: relative; overflow: hidden;
+  }
+  .ritual::before {
+    content: ""; position: absolute; inset: 0;
+    background: var(--azul);
+    transform: scaleY(0); transform-origin: bottom;
+    transition: transform 0.4s cubic-bezier(.2,.9,.3,1);
+    z-index: 0;
+  }
+  .ritual:hover::before { transform: scaleY(1); }
+  .ritual > * { position: relative; z-index: 1; transition: color 0.3s ease; }
+  .ritual:hover > * { color: var(--branco); }
+  .ritual:hover .tipo { color: rgba(255,255,255,0.7); }
+  .ritual .tipo {
+    font-family: var(--mono);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--azul);
+  }
+  .ritual .nome { margin-top: 10px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .ritual .desc { margin-top: 14px; font-size: 14px; color: var(--cinza-600); line-height: 1.55; }
+
+  /* ABOUT */
+  .about {
+    background: var(--azul); color: var(--branco);
+    padding: clamp(110px, 14vw, 170px) 0;
+    position: relative; overflow: hidden;
+  }
+  .about .lens-img { position: absolute; pointer-events: none; }
+  .about .lens-img.l1 {
+    right: -180px; top: -180px;
+    width: 620px; height: 620px;
+    animation: lensFloat1 24s ease-in-out infinite;
+    opacity: 0.85;
+  }
+  .about .lens-img.l2 {
+    left: -200px; bottom: -200px;
+    width: 540px; height: 540px;
+    animation: lensFloat2 30s ease-in-out infinite;
+    opacity: 0.7;
+  }
+  .about .lens-img img { width: 100%; height: 100%; object-fit: contain; }
+  @keyframes lensFloat1 {
+    0%,100% { transform: translate(0,0) rotate(0deg); }
+    50%     { transform: translate(-20px,30px) rotate(8deg); }
+  }
+  @keyframes lensFloat2 {
+    0%,100% { transform: translate(0,0) rotate(0deg); }
+    50%     { transform: translate(30px,-20px) rotate(-6deg); }
+  }
+  .about .eyebrow { color: var(--branco); opacity: 0.85; }
+  .about .eyebrow::before { background: var(--branco); }
+  .about h2 { color: var(--branco); max-width: 16ch; }
+  .about h2 em { font-style: italic; }
+  .about .section-head { position: relative; z-index: 2; }
+
+  .mv-grid {
+    display: grid; grid-template-columns: 1fr; gap: 40px;
+    margin-top: 56px; position: relative; z-index: 2;
+  }
+  @media (min-width: 800px) { .mv-grid { grid-template-columns: 1fr 1fr; gap: 56px; } }
+  .mv-block { transition: transform 0.3s ease; }
+  .mv-block:hover { transform: translateX(8px); }
+  .mv-block .label {
+    font-family: var(--mono);
+    font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--branco); opacity: 0.7;
+  }
+  .mv-block .texto {
+    margin-top: 14px;
+    font-size: clamp(18px, 1.8vw, 22px); line-height: 1.45;
+    font-weight: 300;
+  }
+
+  /* VALORES */
+  .valores-section { background: var(--azul); color: var(--branco); padding: clamp(60px, 8vw, 100px) 0; position: relative; overflow: hidden; }
+  .valores-section::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08), transparent 60%);
+    pointer-events: none;
+  }
+  .valores-grid {
+    display: grid; gap: 32px; grid-template-columns: 1fr;
+    margin-top: 56px; position: relative; z-index: 2;
+  }
+  @media (min-width: 800px) { .valores-grid { grid-template-columns: repeat(3, 1fr); } }
+  .valor {
+    background: rgba(255,255,255,0.06);
+    padding: 36px 32px;
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: all 0.35s cubic-bezier(.2,.9,.3,1);
+    backdrop-filter: blur(8px);
+  }
+  .valor:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-6px);
+    border-color: rgba(255,255,255,0.3);
+  }
+  .valor .icon-wrap {
+    width: 80px; height: 80px;
+    margin-bottom: 24px;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.4s cubic-bezier(.2,1.4,.5,1);
+  }
+  .valor:hover .icon-wrap { transform: rotate(-8deg) scale(1.08); }
+  .valor .icon-wrap img { width: 100%; height: 100%; object-fit: contain; }
+  .valor h3 { color: var(--branco); font-size: 22px; }
+  .valor p {
+    margin-top: 12px;
+    color: rgba(255,255,255,0.78);
+    font-size: 14px; line-height: 1.6;
+  }
+
+  /* COMECE POR AQUI */
+  .start-here { background: var(--off-white); padding: clamp(100px, 12vw, 140px) 0; }
+  .feature-card {
+    margin-top: 40px;
+    background: var(--branco);
+    border: 1px solid var(--preto);
+    overflow: hidden;
+    display: grid; grid-template-columns: 1fr;
+    transition: all 0.3s ease;
+    box-shadow: -6px 6px 0 var(--preto);
+  }
+  @media (min-width: 800px) { .feature-card { grid-template-columns: 1.1fr 1fr; } }
+  .feature-card:hover { transform: translate(-2px,-2px); box-shadow: -8px 8px 0 var(--preto); }
+  .feature-card .feature-text { padding: 40px; }
+  .feature-card .tag {
+    font-family: var(--mono);
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--azul);
+  }
+  .feature-card h3 { margin-top: 16px; font-size: 32px; letter-spacing: -0.02em; }
+  .feature-card h3 em { font-style: italic; color: var(--azul); }
+  .feature-card p { margin-top: 16px; color: var(--cinza-600); font-size: 15px; line-height: 1.6; }
+  .feature-card a {
+    margin-top: 28px;
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--preto); color: var(--branco);
+    padding: 14px 22px;
+    font-weight: 700; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .feature-card a:hover { background: var(--azul); transform: translateX(4px); }
+  .feature-card .feature-video {
+    background: var(--preto);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+  }
+  .feature-card .feature-video iframe {
+    width: 100%; height: 100%; border: 0;
+    position: absolute; inset: 0;
+  }
+
+  .tips-grid {
+    margin-top: 32px;
+    display: grid; gap: 0; grid-template-columns: 1fr;
+    border-top: 1px solid var(--preto);
+    border-left: 1px solid var(--preto);
+  }
+  @media (min-width: 700px) { .tips-grid { grid-template-columns: repeat(3, 1fr); } }
+  .tip-link {
+    padding: 32px 28px;
+    border-right: 1px solid var(--preto);
+    border-bottom: 1px solid var(--preto);
+    background: var(--branco);
+    text-decoration: none; color: var(--preto);
+    transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+    display: block;
+  }
+  .tip-link::before {
+    content: ""; position: absolute; inset: 0;
+    background: var(--preto);
+    transform: translateY(101%);
+    transition: transform 0.4s cubic-bezier(.2,.9,.3,1);
+  }
+  .tip-link > * { position: relative; z-index: 1; }
+  .tip-link:hover { color: var(--branco); }
+  .tip-link:hover::before { transform: translateY(0); }
+  .tip-link:hover .arrow { transform: translate(8px,-8px); color: var(--azul-light); }
+  .tip-link:hover .desc { color: rgba(255,255,255,0.7); }
+  .tip-link .nome { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  .tip-link .desc { margin-top: 8px; font-size: 13px; color: var(--cinza-600); transition: color 0.3s ease; font-family: var(--mono); letter-spacing: 0.02em; line-height: 1.5; }
+  .tip-link .arrow {
+    position: absolute; top: 32px; right: 28px;
+    font-size: 22px; transition: all 0.3s ease;
+  }
+
+  /* LINKS */
+  .links-grid {
+    display: grid; gap: 0; grid-template-columns: 1fr;
+    border-top: 1px solid var(--preto);
+    border-left: 1px solid var(--preto);
+  }
+  @media (min-width: 700px) { .links-grid { grid-template-columns: repeat(3, 1fr); } }
+  .link-item {
+    display: block; padding: 36px 28px; text-decoration: none; color: var(--preto);
+    border-right: 1px solid var(--preto);
+    border-bottom: 1px solid var(--preto);
+    transition: all 0.3s ease; position: relative;
+    background: var(--branco); overflow: hidden;
+  }
+  .link-item::before {
+    content: ""; position: absolute; inset: 0;
+    background: var(--preto);
+    transform: translateY(101%);
+    transition: transform 0.4s cubic-bezier(.2,.9,.3,1);
+  }
+  .link-item > * { position: relative; z-index: 1; }
+  .link-item:hover { color: var(--branco); }
+  .link-item:hover::before { transform: translateY(0); }
+  .link-item:hover .arrow { transform: translate(8px,-8px); color: var(--azul-light); }
+  .link-item:hover .desc { color: rgba(255,255,255,0.7); }
+  .link-item .nome { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+  .link-item .desc { margin-top: 8px; font-size: 13px; color: var(--cinza-600); transition: color 0.3s ease; font-family: var(--mono); letter-spacing: 0.02em; }
+  .link-item .arrow { position: absolute; top: 36px; right: 28px; font-size: 22px; transition: all 0.3s ease; }
+
+  /* CLOSING */
+  .closing {
+    background: var(--preto); color: var(--branco);
+    padding: clamp(110px, 14vw, 170px) 0;
+    position: relative; overflow: hidden;
+  }
+  .closing::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(10,0,190,0.4), transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(10,0,190,0.25), transparent 50%);
+    animation: meshFloat 22s ease-in-out infinite;
+  }
+  .closing .wrap { position: relative; z-index: 2; }
+  .closing .eyebrow { color: var(--branco); opacity: 0.85; }
+  .closing .eyebrow::before { background: var(--azul-light); }
+  .closing h2 { color: var(--branco); margin-top: 20px; max-width: 18ch; }
+  .closing h2 em { font-style: italic; color: var(--azul-light); }
+  .closing p {
+    margin-top: 32px;
+    font-size: clamp(17px, 1.6vw, 21px); line-height: 1.55;
+    color: rgba(255,255,255,0.78);
+    font-weight: 300; max-width: 60ch;
+  }
+  .closing .milestone-90 {
+    margin-top: 48px;
+    padding: 24px 28px;
+    background: rgba(255,255,255,0.06);
+    border-left: 4px solid var(--azul-light);
+    max-width: 60ch;
+  }
+  .closing .milestone-90 .lab {
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--azul-light);
+  }
+  .closing .milestone-90 .txt {
+    margin-top: 8px; font-size: 16px; line-height: 1.55;
+    color: rgba(255,255,255,0.9); font-weight: 400;
+  }
+  .closing .signoff {
+    margin-top: 64px; padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.18);
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+  }
+
+  /* TOAST */
+  .toast-area {
+    position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
+    z-index: 300; pointer-events: none;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .toast {
+    background: var(--preto); color: var(--branco);
+    padding: 20px 26px;
+    display: flex; align-items: center; gap: 18px;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.06);
+    animation: toastIn 0.5s cubic-bezier(.2,1.6,.4,1), toastOut 0.5s ease 3.8s forwards;
+    min-width: 300px; max-width: 90vw;
+    position: relative; overflow: hidden;
+  }
+  .toast::before {
+    content: ""; position: absolute; top: 0; left: 0; height: 3px;
+    background: var(--azul-light);
+    width: 100%;
+    animation: toastBar 4s linear forwards;
+  }
+  @keyframes toastBar { from { width: 100%; } to { width: 0%; } }
+  .toast .tbadge {
+    width: 52px; height: 52px;
+    background: var(--azul); color: var(--branco);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 700;
+    flex-shrink: 0;
+  }
+  .toast .ttext .label {
+    font-family: var(--mono);
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; opacity: 0.6;
+  }
+  .toast .ttext .title { font-size: 17px; font-weight: 700; margin-top: 4px; letter-spacing: -0.01em; }
+  .toast .ttext .points { font-family: var(--mono); font-size: 12px; color: var(--azul-light); margin-top: 4px; letter-spacing: 0.1em; }
+  @keyframes toastIn { from { opacity: 0; transform: translateY(50px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  @keyframes toastOut { to { opacity: 0; transform: translateY(50px) scale(0.9); } }
+
+  /* FOCUS BAR */
+  .focus-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 180;
+    background: var(--branco);
+    border-top: 2px solid var(--preto);
+    padding: 14px var(--gutter);
+    display: flex; align-items: center; gap: 20px;
+    box-shadow: 0 -16px 32px rgba(0,0,0,0.08);
+    transition: transform 0.4s cubic-bezier(.2,.9,.3,1);
+    transform: translateY(0);
+  }
+  .focus-bar.hidden { transform: translateY(110%); }
+  .focus-bar .fb-icon {
+    width: 36px; height: 36px; background: var(--azul); color: var(--branco);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; flex-shrink: 0;
+  }
+  .focus-bar .fb-text { flex: 1; min-width: 0; }
+  .focus-bar .fb-lab {
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--cinza-600);
+  }
+  .focus-bar .fb-title {
+    margin-top: 2px;
+    font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .focus-bar button {
+    flex-shrink: 0;
+    background: var(--azul); color: var(--branco);
+    border: none;
+    padding: 12px 20px;
+    font-family: 'Vinila', sans-serif; font-weight: 700;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: transform 0.2s ease;
+  }
+  .focus-bar button:hover { transform: translateX(4px); background: var(--preto); }
+  .focus-bar .fb-close {
+    flex-shrink: 0; background: none; border: none; color: var(--cinza-400);
+    font-size: 18px; cursor: pointer; padding: 4px 8px;
+  }
+  .focus-bar .fb-close:hover { color: var(--preto); transform: none; background: none; }
+  @media (max-width: 600px) {
+    .focus-bar { padding: 10px 16px; gap: 12px; }
+    .focus-bar .fb-icon { width: 32px; height: 32px; }
+    .focus-bar .fb-title { font-size: 13px; }
+    .focus-bar button { padding: 10px 14px; font-size: 10px; }
+  }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.2,.9,.3,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal-stagger.in > * { animation: staggerIn 0.7s cubic-bezier(.2,.9,.3,1) both; }
+  .reveal-stagger.in > *:nth-child(1) { animation-delay: 0.05s; }
+  .reveal-stagger.in > *:nth-child(2) { animation-delay: 0.15s; }
+  .reveal-stagger.in > *:nth-child(3) { animation-delay: 0.25s; }
+  .reveal-stagger.in > *:nth-child(4) { animation-delay: 0.35s; }
+  .reveal-stagger.in > *:nth-child(5) { animation-delay: 0.45s; }
+  .reveal-stagger.in > *:nth-child(6) { animation-delay: 0.55s; }
+  @keyframes staggerIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  #confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 250; }
+</style>
+</head>
+
+<body>
+
+<header class="top">
+  <img src="https://y33p9p446szaukxf.public.blob.vercel-storage.com/logos/LOGO%20P.png" alt="TRINCA" />
+  <div class="tag">TRINCA Experience · Maio 2026</div>
+</header>
+
+<div class="hud" id="hud">
+  <div class="lvl-block">
+    <div class="lvl-label">Nível</div>
+    <div class="lvl-val" id="hudLevel">1</div>
+  </div>
+  <div class="right">
+    <div class="xpbar" id="xpbar"></div>
+    <div class="narrative" id="hudNarrative">Mal começou, <span class="accent">mas vai longe.</span></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="session-meta">
+          <span>TRINCA EXPERIENCE</span>
+          <span>MAIO 2026</span>
+          <span>90 DIAS</span>
+        </div>
+        <div class="eyebrow">Sua jornada começa agora</div>
+        <h1>
+          Olá,
+          <span class="name">Letícia</span>
+        </h1>
+        <p class="lead">
+          Bem-vinda à TRINCA Experience. São 90 dias para conhecer, conectar e construir junto. A página é sua: caminhe no seu tempo, marque o que já fez e veja seu avatar avançar pela trilha. Quem dita o ritmo é você.
+        </p>
+        <div class="cta-stack">
+          <button class="start-cta" onclick="document.querySelector('#aliados').scrollIntoView({behavior:'smooth'})">
+            <span>Começar agora</span>
+            <span class="arrow">→</span>
+          </button>
+          <span class="tip-pulse">Cada ação concluída vira ponto</span>
+        </div>
+      </div>
+
+      <div class="player-card">
+        <div class="player-card-inner">
+          <div class="player-card-body">
+            <div class="badge">Você</div>
+            <div class="photo-frame"></div>
+            <div class="nome-jogador">Letícia Lopes de Castro Sena</div>
+            <div class="cargo">Quality Assurance · <strong>Wiz</strong></div>
+            <div class="stats">
+              <div>
+                <div class="stat-label">Fase</div>
+                <div class="stat-value azul">1/3</div>
+              </div>
+              <div>
+                <div class="stat-label">Dias</div>
+                <div class="stat-value">0/90</div>
+              </div>
+              <div>
+                <div class="stat-label">Squad</div>
+                <div class="stat-value">Wiz</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALIADOS -->
+<section id="aliados">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Seus aliados</div>
+      <h2>As pessoas que <em>caminham com você.</em></h2>
+      <p class="lead">
+        Antes de qualquer agenda ou ação, essas são as pessoas que vão andar lado a lado nos seus primeiros dias. Use cada uma, todas existem pra isso.
+      </p>
+    </div>
+
+    <div class="help-grid reveal">
+      <div class="help-card">
+        <div class="head-row">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Thiago%20Bossle%20Mengue.png');"></div>
+          <div>
+            <div class="role-tag">Liderança direta</div>
+            <div class="nome">Thiago Mengue</div>
+          </div>
+        </div>
+        <p class="quando">Para alinhamentos estratégicos, contexto da squad Wiz e direção do que entregar nas próximas semanas.</p>
+      </div>
+      <div class="help-card">
+        <div class="head-row">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Thiago%20Silva.png');"></div>
+          <div>
+            <div class="role-tag">Buddy</div>
+            <div class="nome">Thiago Silva</div>
+          </div>
+        </div>
+        <p class="quando">Para dúvidas do dia a dia, ferramentas, atalhos e tudo que parece pequeno demais para virar reunião. Marque um café.</p>
+      </div>
+      <div class="help-card">
+        <div class="head-row">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Thamary%20Caroline%20Sampaio%20Lousada%20dos%20Santos.png');"></div>
+          <div>
+            <div class="role-tag">Business Partner</div>
+            <div class="nome">Thamary (Tatá)</div>
+          </div>
+        </div>
+        <p class="quando">Para cultura, carreira, pulses, conversa estruturada de 30 dias e qualquer fricção que sentir no caminho.</p>
+      </div>
+    </div>
+
+    <div class="team-divider reveal">
+      <div class="eyebrow">Time da Wiz</div>
+      <h3 style="margin-top: 12px;">Quem está com você no dia a dia</h3>
+      <p class="subtitle" style="margin-top: 8px;">Comunicação aqui é sempre horizontal. Pode chamar qualquer uma delas no Slack.</p>
+
+      <div class="team-grid">
+        <div class="person lead-person">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Thiago%20Bossle%20Mengue.png');"></div>
+          <div class="tag-special">Líder</div>
+          <div class="nome">Mengue</div>
+          <div class="role">Tech Manager</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Thiago%20Silva.png');"></div>
+          <div class="tag-special">Buddy</div>
+          <div class="nome">Thiago Silva</div>
+          <div class="role">Squad Lead</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://res.cloudinary.com/qulture/image/upload/v1/user_profile_picture/fcr6zjfkefzc0mjqw7mi');"></div>
+          <div class="nome">Lennon</div>
+          <div class="role">Staff Software Engineer</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Luiz%20Felipe%20Persson.png');"></div>
+          <div class="nome">Persson</div>
+          <div class="role">Product Manager</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://res.cloudinary.com/qulture/image/upload/v1/user_profile_picture/hlsuilkl0m1mfb4ptksx');"></div>
+          <div class="nome">Drigo</div>
+          <div class="role">Software Engineer</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://res.cloudinary.com/qulture/image/upload/v1/user_profile_picture/dxafjzrydby2mfcbqekm');"></div>
+          <div class="nome">Wesley</div>
+          <div class="role">IA Engineer</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://res.cloudinary.com/qulture/image/upload/v1/user_profile_picture/h94pifg9fbwrn5eqh2hh');"></div>
+          <div class="nome">Mel</div>
+          <div class="role">AI Solutions Architect</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Sergio%20Fidelis%20de%20Padua%20Filho.png');"></div>
+          <div class="nome">Sergio</div>
+          <div class="role">Product Designer</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Felipe%20Santos%20Marciano.png');"></div>
+          <div class="nome">Marciano</div>
+          <div class="role">Software Engineer</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Foto%20Leonan%20Cardoso%20da%20Silva%20Viana%20.png');"></div>
+          <div class="nome">Leonan</div>
+          <div class="role">DevOps Engineer</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Paulo%20Ricardo%20Serafim%20Campos%20.png');"></div>
+          <div class="nome">Paulo</div>
+          <div class="role">Salesforce Developer</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://8uo8buzhjxou5oo3.public.blob.vercel-storage.com/foto%20Davi%20Rodrigues%20da%20Silva%20.png');"></div>
+          <div class="nome">Davi</div>
+          <div class="role">Software Engineer Angular</div>
+        </div>
+        <div class="person">
+          <div class="photo" style="background-image: url('https://y33p9p446szaukxf.public.blob.vercel-storage.com/fotos/Joyce%20Nascimento%20da%20Silva%20.png');"></div>
+          <div class="nome">Joy</div>
+          <div class="role">Product Manager</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta reveal">
+      <div>
+        <div class="lab">Próximo passo</div>
+        <div class="titulo">Veja a <em>agenda</em> da sua primeira semana</div>
+      </div>
+      <a href="#agenda">
+        <span>Ver agenda</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA REAL -->
+<section id="agenda" class="agenda-section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Semana 1 · 18 a 22 de maio</div>
+      <h2>Sua <em>agenda</em> detalhada.</h2>
+      <p class="lead">
+        Essa é a sua primeira semana. Ao longo dos 90 dias você vai continuar evoluindo dentro do seu contexto, com mais autonomia para construir a própria rotina.
+      </p>
+    </div>
+
+    <div class="agenda-alert reveal">
+      <div class="ico">!</div>
+      <div>
+        <strong>Importante</strong>
+        <p>Esta agenda pode sofrer alterações. Sempre considere o Google Calendar como fonte oficial.</p>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-head">
+        <div class="day-date">18/05</div>
+        <div class="day-name">Segunda-feira</div>
+        <div class="day-count"><span>4</span> reuniões</div>
+      </div>
+      <div class="meeting">
+        <div class="time">10:00 → 11:00</div>
+        <div><div class="title">Boas vindas Letícia &lt;&gt; Líder</div><div class="with">com Mengue</div></div>
+      </div>
+      <div class="meeting">
+        <div class="time">11:00 → 12:00</div>
+        <div><div class="title">WELCOME TECNOLOGIA</div><div class="with">visão de time</div></div>
+      </div>
+      <div class="meeting">
+        <div class="time">14:00 → 14:30</div>
+        <div><div class="title">Boas vindas Buddy</div><div class="with">com Thiago Silva</div></div>
+      </div>
+      <div class="meeting">
+        <div class="time">16:00 → 17:00</div>
+        <div><div class="title">WELCOME PRODUTO</div><div class="with">visão de time</div></div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-head">
+        <div class="day-date">19/05</div>
+        <div class="day-name">Terça-feira</div>
+        <div class="day-count"><span>2</span> reuniões</div>
+      </div>
+      <div class="meeting">
+        <div class="time">09:00 → 09:45</div>
+        <div><div class="title">WELCOME TECNOLOGIA</div><div class="with">aprofundamento</div></div>
+      </div>
+      <div class="meeting">
+        <div class="time">11:30 → 12:30</div>
+        <div><div class="title">WELCOME COMERCIAL</div><div class="with">visão de time</div></div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-head">
+        <div class="day-date">20/05</div>
+        <div class="day-name">Quarta-feira</div>
+        <div class="day-count"><span>1</span> reunião</div>
+      </div>
+      <div class="meeting">
+        <div class="time">09:00 → 10:00</div>
+        <div><div class="title">WELCOME OPERAÇÕES</div><div class="with">visão de time</div></div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-head">
+        <div class="day-date">21/05</div>
+        <div class="day-name">Quinta-feira</div>
+        <div class="day-count"><span>1</span> reunião</div>
+      </div>
+      <div class="meeting">
+        <div class="time">11:00 → 12:00</div>
+        <div><div class="title">WELCOME FINANCEIRO</div><div class="with">visão de time</div></div>
+      </div>
+    </div>
+
+    <div class="day reveal">
+      <div class="day-head">
+        <div class="day-date">22/05</div>
+        <div class="day-name">Sexta-feira</div>
+        <div class="day-count">tempo de respiro</div>
+      </div>
+      <div class="meeting">
+        <div class="time">livre</div>
+        <div><div class="title">Espaço para conversar com o time e consumir as trilhas no seu ritmo</div><div class="with">use também para combinar um café com Tatá (BP)</div></div>
+      </div>
+    </div>
+
+    <div class="section-cta reveal">
+      <div>
+        <div class="lab">Agora você já sabe como vai funcionar sua agenda</div>
+        <div class="titulo">Veja o <em>mapa</em> e marque as ações da sua jornada</div>
+      </div>
+      <a href="#mapa">
+        <span>Ver mapa</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section id="mapa" class="map">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">A trilha · TRINCA Experience</div>
+      <h2>3 fases. 90 dias. <br/>Do contexto ao <em>impacto</em>.</h2>
+      <p class="lead">
+        A cada bloco de ações concluído, novas se desbloqueiam e seu avatar avança pelo mapa. Você começa na imersão. O destino é virar parte estratégica da construção do que vem a seguir.
+      </p>
+    </div>
+
+    <div class="map-stage reveal">
+      <svg class="path-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path id="pathDone" class="path-line done" d="M 14 38 Q 30 70, 50 64" style="stroke-dasharray: 80; stroke-dashoffset: 80; transition: stroke-dashoffset 1.4s ease;"/>
+        <path class="path-line" d="M 14 38 Q 30 70, 50 64 T 86 36" />
+      </svg>
+
+      <div class="checkpoint cp-1" data-state="current" id="cp-1">
+        <div class="badge-circle">
+          <div class="num">30</div>
+          <div class="dias">dias</div>
+        </div>
+        <div class="name">Imersão</div>
+        <div class="desc">Entender, escutar, conectar</div>
+      </div>
+
+      <div class="checkpoint cp-2" data-state="locked" id="cp-2">
+        <div class="badge-circle">
+          <div class="num">60</div>
+          <div class="dias">dias</div>
+        </div>
+        <div class="name">Consolidação</div>
+        <div class="desc">Autonomia e entregas</div>
+      </div>
+
+      <div class="checkpoint cp-3" data-state="locked" id="cp-3">
+        <div class="badge-circle">
+          <div class="num">90</div>
+          <div class="dias">dias</div>
+        </div>
+        <div class="name">Impacto</div>
+        <div class="desc">Primeiro ciclo + PDI</div>
+      </div>
+
+      <div class="map-walker" id="mapWalker" style="left: 14%; top: 38%;">
+        <div class="photo-circle"></div>
+      </div>
+    </div>
+
+    <div class="map-stats reveal">
+      <div>
+        <div class="lab">Ações concluídas</div>
+        <div class="val"><span id="statMissoesNum">0</span><span class="of">/17</span></div>
+      </div>
+      <div>
+        <div class="lab">Conquistas</div>
+        <div class="val azul" id="statConquistas">0<span class="of">/4</span></div>
+      </div>
+      <div>
+        <div class="lab">Pontos acumulados</div>
+        <div class="val" id="statXP">0</div>
+      </div>
+    </div>
+
+    <div class="section-cta reveal">
+      <div>
+        <div class="lab">Próximo passo</div>
+        <div class="titulo">Vá para a <em>primeira ação</em> da sua jornada</div>
+      </div>
+      <a href="#acoes">
+        <span>Ver ações</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- AÇÕES -->
+<section class="quests-section" id="acoes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Suas ações · Fase 1</div>
+      <h2>Marque o que <em>já completou.</em></h2>
+      <p class="lead">
+        As ações abaixo cobrem os primeiros 30 dias. Não é obrigatório fazer tudo, é um guia. Quando você conclui um bloco inteiro, ganha uma conquista, pontos bônus e seu avatar avança no mapa.
+      </p>
+    </div>
+
+    <div class="quest-block reveal" data-block="entrada" data-complete="false">
+      <div class="quest-header">
+        <div class="quest-icon">1</div>
+        <div class="quest-title-wrap">
+          <div class="quest-title">Primeiros dias</div>
+          <div class="quest-sub">Bloco 1 · até o dia 5</div>
+        </div>
+        <div class="quest-mini-bar-wrap">
+          <div class="quest-mini-bar"></div>
+          <div class="quest-progress"><strong><span class="qb-done">0</span></strong><span>/<span class="qb-total">5</span></span></div>
+        </div>
+      </div>
+      <div class="quest-list">
+        <div class="quest-item" data-done="false" data-xp="10">
+          <div class="checkbox"></div>
+          <div class="quest-text">Acessar o Slack e entrar nos canais do time Wiz</div>
+          <div class="quest-points">+10 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="15">
+          <div class="checkbox"></div>
+          <div class="quest-text">Configurar Google Calendar e conferir minha agenda da semana</div>
+          <div class="quest-points">+15 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="15">
+          <div class="checkbox"></div>
+          <div class="quest-text">Receber e configurar o equipamento com o Betinho</div>
+          <div class="quest-points">+15 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="20">
+          <div class="checkbox"></div>
+          <div class="quest-text">Apresentar-me no canal da TRINCA com uma foto e uma curiosidade</div>
+          <div class="quest-points">+20 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="10">
+          <div class="checkbox"></div>
+          <div class="quest-text">Salvar nos favoritos: TRINCA Hub, Learning Rocks e Qulture Rocks</div>
+          <div class="quest-points">+10 pts</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-connector"></div>
+
+    <div class="quest-block reveal" data-block="pessoas" data-complete="false">
+      <div class="quest-header">
+        <div class="quest-icon">2</div>
+        <div class="quest-title-wrap">
+          <div class="quest-title">Conectar com pessoas</div>
+          <div class="quest-sub">Bloco 2 · semanas 1 e 2</div>
+        </div>
+        <div class="quest-mini-bar-wrap">
+          <div class="quest-mini-bar"></div>
+          <div class="quest-progress"><strong><span class="qb-done">0</span></strong><span>/<span class="qb-total">5</span></span></div>
+        </div>
+      </div>
+      <div class="quest-list">
+        <div class="quest-item" data-done="false" data-xp="20">
+          <div class="checkbox"></div>
+          <div class="quest-text">Ter o 1:1 inicial com Mengue (liderança)</div>
+          <div class="quest-points">+20 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="15">
+          <div class="checkbox"></div>
+          <div class="quest-text">Conhecer Thiago Silva, meu buddy, e combinar como vamos conversar</div>
+          <div class="quest-points">+15 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="15">
+          <div class="checkbox"></div>
+          <div class="quest-text">Marcar um café com Tatá, minha BP de People</div>
+          <div class="quest-points">+15 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="25">
+          <div class="checkbox"></div>
+          <div class="quest-text">Ter conversas individuais com pelo menos 3 pessoas do time Wiz</div>
+          <div class="quest-points">+25 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="15">
+          <div class="checkbox"></div>
+          <div class="quest-text">Mandar um Kudos para alguém que me ajudou nessa primeira semana</div>
+          <div class="quest-points">+15 pts</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-connector"></div>
+
+    <div class="quest-block reveal" data-block="contexto" data-complete="false">
+      <div class="quest-header">
+        <div class="quest-icon">3</div>
+        <div class="quest-title-wrap">
+          <div class="quest-title">Entrar no contexto da Wiz</div>
+          <div class="quest-sub">Bloco 3 · semanas 2 a 4</div>
+        </div>
+        <div class="quest-mini-bar-wrap">
+          <div class="quest-mini-bar"></div>
+          <div class="quest-progress"><strong><span class="qb-done">0</span></strong><span>/<span class="qb-total">4</span></span></div>
+        </div>
+      </div>
+      <div class="quest-list">
+        <div class="quest-item" data-done="false" data-xp="25">
+          <div class="checkbox"></div>
+          <div class="quest-text">Entender a estratégia de QA atual da squad Wiz</div>
+          <div class="quest-points">+25 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="25">
+          <div class="checkbox"></div>
+          <div class="quest-text">Mapear os fluxos críticos do produto que precisam de cobertura</div>
+          <div class="quest-points">+25 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="25">
+          <div class="checkbox"></div>
+          <div class="quest-text">Conhecer as ferramentas de teste e processo de bugs do time</div>
+          <div class="quest-points">+25 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="25">
+          <div class="checkbox"></div>
+          <div class="quest-text">Acompanhar pelo menos uma cerimônia inteira do time (planning, daily ou review)</div>
+          <div class="quest-points">+25 pts</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block-connector"></div>
+
+    <div class="quest-block reveal" data-block="cultura" data-complete="false">
+      <div class="quest-header">
+        <div class="quest-icon">4</div>
+        <div class="quest-title-wrap">
+          <div class="quest-title">Mergulhar na TRINCA</div>
+          <div class="quest-sub">Bloco 4 · até o dia 30</div>
+        </div>
+        <div class="quest-mini-bar-wrap">
+          <div class="quest-mini-bar"></div>
+          <div class="quest-progress"><strong><span class="qb-done">0</span></strong><span>/<span class="qb-total">3</span></span></div>
+        </div>
+      </div>
+      <div class="quest-list">
+        <div class="quest-item" data-done="false" data-xp="20">
+          <div class="checkbox"></div>
+          <div class="quest-text">Completar o módulo Welcome com People no Learning Rocks</div>
+          <div class="quest-points">+20 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="20">
+          <div class="checkbox"></div>
+          <div class="quest-text">Completar o módulo Negócio no Learning Rocks</div>
+          <div class="quest-points">+20 pts</div>
+        </div>
+        <div class="quest-item" data-done="false" data-xp="20">
+          <div class="checkbox"></div>
+          <div class="quest-text">Participar do meu primeiro Pit Stop ou All Hands</div>
+          <div class="quest-points">+20 pts</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-cta reveal">
+      <div>
+        <div class="lab">Próximo passo</div>
+        <div class="titulo">Conheça o <em>briefing</em> da Fase 1</div>
+      </div>
+      <a href="#foco">
+        <span>Ver o foco</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOCO FASE 1 -->
+<section class="focus-card" id="foco">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Briefing da Fase 1</div>
+      <h2>Onde colocar <em>energia</em> <br/>nos primeiros 30 dias.</h2>
+      <p class="lead">
+        Esta fase é sobre escutar mais do que falar. O time da Wiz preparou os marcos abaixo para você navegar com clareza no QA da squad.
+      </p>
+    </div>
+    <ul class="focus-list reveal">
+      <li><span>01</span> Conhecer a estratégia de QA atual e onde estão os pontos de melhoria.</li>
+      <li><span>02</span> Entender os fluxos críticos do produto e onde priorizar cobertura.</li>
+      <li><span>03</span> Mapear ferramentas, processos de bugs e governança de testes.</li>
+      <li><span>04</span> Conectar com o time e entender como QA participa das cerimônias.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESPIRE -->
+<section class="breathe">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Respire</div>
+      <h2>O que você <em>não precisa</em> fazer agora.</h2>
+      <p class="lead">
+        Esta é uma jornada, não uma corrida. Os primeiros dias têm um foco específico, e ele não é performar.
+      </p>
+    </div>
+    <div class="breathe-items reveal reveal-stagger">
+      <div class="breathe-item">
+        <div class="num">01</div>
+        <div class="titulo">Não precisa dominar tudo</div>
+        <p class="desc">Você não vai conhecer todos os sistemas, processos e siglas na primeira semana. Ninguém conhece. Vá no seu ritmo.</p>
+      </div>
+      <div class="breathe-item">
+        <div class="num">02</div>
+        <div class="titulo">Não precisa ter respostas</div>
+        <p class="desc">Fazer perguntas é mais importante que ter soluções prontas. Pergunte sem economia, especialmente nas primeiras semanas.</p>
+      </div>
+      <div class="breathe-item">
+        <div class="num">03</div>
+        <div class="titulo">Não precisa provar nada</div>
+        <p class="desc">Os primeiros dias são sobre entender, não sobre performar. A entrega de valor vem depois, e com o time inteiro junto. Lá no dia 90 você entra no seu primeiro ciclo de avaliação e começa a desenhar seu PDI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RITUAIS -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Rituais da TRINCA</div>
+      <h2>Encontros e ferramentas <br/>que dão <em>cadência</em>.</h2>
+      <p class="lead">
+        Ao longo dos 90 dias você vai participar de rituais e usar ferramentas que estruturam nosso ritmo. Aqui vai o mapa rápido.
+      </p>
+    </div>
+    <div class="rituais-grid reveal">
+      <div class="ritual">
+        <div class="tipo">Trimestral</div>
+        <div class="nome">All Hands</div>
+        <p class="desc">Encontro grande da TRINCA inteira. Atualização, direcionamento estratégico e celebração do que foi entregue.</p>
+      </div>
+      <div class="ritual">
+        <div class="tipo">Pontual</div>
+        <div class="nome">Pit Stop</div>
+        <p class="desc">Parada estratégica para conversas sobre temas em comum que todo mundo precisa participar.</p>
+      </div>
+      <div class="ritual">
+        <div class="tipo">Reconhecimento</div>
+        <div class="nome">Kudos</div>
+        <p class="desc">Canal aberto de reconhecimento no Slack. Qualquer pessoa pode reconhecer qualquer pessoa, a qualquer hora.</p>
+      </div>
+      <div class="ritual">
+        <div class="tipo">Fonte oficial</div>
+        <div class="nome">TRINCA Hub</div>
+        <p class="desc">Central de informações, processos, calendário, organograma e tudo que você vai consultar com frequência.</p>
+      </div>
+      <div class="ritual">
+        <div class="tipo">Trilha estruturada</div>
+        <div class="nome">Learning Rocks</div>
+        <p class="desc">Formações e conteúdos para desenvolvimento contínuo. Sua trilha de onboarding também vive aqui.</p>
+      </div>
+      <div class="ritual">
+        <div class="tipo">Cultura</div>
+        <div class="nome">TRINCA Talent</div>
+        <p class="desc">Reconhecimento trimestral das pessoas que viveram os valores: Conecte-se, Assuma, Entregue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="lens-img l1"><img src="https://y33p9p446szaukxf.public.blob.vercel-storage.com/nova%20marca/Lentes%20TRINCA%201.png" alt="" /></div>
+  <div class="lens-img l2"><img src="https://y33p9p446szaukxf.public.blob.vercel-storage.com/nova%20marca/Lentes%20TRINCA%202.png" alt="" /></div>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Quem somos</div>
+      <h2>Strategic tech partner. Brasileira. <em>Estratégia, Design e Tecnologia juntos.</em></h2>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-block reveal">
+        <div class="label">Missão</div>
+        <p class="texto">Elevamos a maturidade digital das organizações, criando soluções que geram valor, em parceria com quem constrói o futuro.</p>
+      </div>
+      <div class="mv-block reveal">
+        <div class="label">Visão</div>
+        <p class="texto">Ser a força que redefine mercados, capacitando organizações a liderar e a transformar a experiência humana por meio da tecnologia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="valores-section">
+  <div class="wrap">
+    <div class="section-head reveal" style="max-width: 760px;">
+      <h2 style="color: var(--branco);">Os três valores TRINCA</h2>
+    </div>
+    <div class="valores-grid reveal reveal-stagger">
+      <div class="valor">
+        <div class="icon-wrap">
+          <img src="https://y33p9p446szaukxf.public.blob.vercel-storage.com/nova%20marca/TRINCA-I%CC%81CONES-07.png" alt="Conecte-se de verdade" />
+        </div>
+        <h3>Conecte-se de verdade</h3>
+        <p>Relações genuínas, escuta ativa, troca real. Aqui presença e colaboração contam tanto quanto resultado.</p>
+      </div>
+      <div class="valor">
+        <div class="icon-wrap">
+          <img src="https://y33p9p446szaukxf.public.blob.vercel-storage.com/nova%20marca/TRINCA-I%CC%81CONES-06.png" alt="Assuma os desafios" />
+        </div>
+        <h3>Assuma os desafios</h3>
+        <p>Postura ativa, autonomia, coragem para transformar problemas em soluções com inteligência e impacto.</p>
+      </div>
+      <div class="valor">
+        <div class="icon-wrap">
+          <img src="https://y33p9p446szaukxf.public.blob.vercel-storage.com/nova%20marca/TRINCA-I%CC%81CONES-08%20%281%29.png" alt="Entregue com orgulho" />
+        </div>
+        <h3>Entregue com orgulho</h3>
+        <p>Cuidado nos detalhes, critério na revisão, capricho que se sente. Mais do que bem feito, queremos orgulho do que colocamos no mundo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMECE POR ONDE TODO MUNDO COMEÇOU -->
+<section class="start-here">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Comece por onde todo mundo começou</div>
+      <h2>Dicas de <em>consumo inteligente.</em></h2>
+      <p class="lead">
+        Materiais que ajudam você a entender a cultura, a história e o jeito TRINCA de fazer as coisas. Consuma no seu ritmo.
+      </p>
+    </div>
+
+    <div class="feature-card reveal">
+      <div class="feature-text">
+        <div class="tag">Comece aqui · vídeo</div>
+        <h3>Como a gente <em>construiu o escritório</em> em Porto Alegre.</h3>
+        <p>Um pedacinho de quem somos. Esse vídeo mostra como a TRINCA construiu o escritório em Porto Alegre, e ajuda a sentir o jeito que a gente faz as coisas, desde o cuidado com os detalhes até o time todo envolvido.</p>
+        <a href="https://www.youtube.com/watch?v=cQUKjJzyPvk" target="_blank" rel="noopener">
+          <span>Assistir no YouTube</span>
+          <span>↗</span>
+        </a>
+      </div>
+      <div class="feature-video">
+        <iframe src="https://www.youtube-nocookie.com/embed/cQUKjJzyPvk" title="Construção do escritório TRINCA POA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="tips-grid reveal">
+      <a class="tip-link" href="https://hub.trinca.com/book-cultura" target="_blank" rel="noopener">
+        <div class="nome">Book de Cultura</div>
+        <div class="desc">O jeito TRINCA de pensar, decidir e trabalhar.</div>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="tip-link" href="https://hub.trinca.com/calendario-trinca" target="_blank" rel="noopener">
+        <div class="nome">Calendário TRINCA</div>
+        <div class="desc">Datas-chave, rituais e momentos coletivos.</div>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="tip-link" href="https://qulture.rocks/" target="_blank" rel="noopener">
+        <div class="nome">Qulture Rocks</div>
+        <div class="desc">Sua casa pra feedback, 1:1 e desenvolvimento.</div>
+        <div class="arrow">↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LINKS -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Links úteis</div>
+      <h2>Para guardar nos <em>favoritos</em>.</h2>
+    </div>
+    <div class="links-grid reveal">
+      <a class="link-item" href="https://hub.trinca.com/" target="_blank" rel="noopener">
+        <div class="nome">TRINCA Hub</div>
+        <div class="desc">Central de conhecimento e processos</div>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://hub.trinca.com/book-cultura" target="_blank" rel="noopener">
+        <div class="nome">Book de Cultura</div>
+        <div class="desc">O jeito TRINCA</div>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://hub.trinca.com/calendario-trinca" target="_blank" rel="noopener">
+        <div class="nome">Calendário TRINCA</div>
+        <div class="desc">Datas e rituais</div>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="link-item" href="https://qulture.rocks/" target="_blank" rel="noopener">
+        <div class="nome">Qulture Rocks</div>
+        <div class="desc">PDI, 1:1, feedback</div>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="link-item" href="#" target="_blank" rel="noopener">
+        <div class="nome">Learning Rocks</div>
+        <div class="desc">Sua trilha de onboarding</div>
+        <div class="arrow">↗</div>
+      </a>
+      <a class="link-item" href="#" target="_blank" rel="noopener">
+        <div class="nome">Slack</div>
+        <div class="desc">Onde a TRINCA conversa</div>
+        <div class="arrow">↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="wrap">
+    <div class="eyebrow reveal">Essa é a sua jornada</div>
+    <h2 class="reveal">E ela é <em>construída junto.</em></h2>
+    <p class="reveal">
+      Nos próximos 90 dias você vai sair do contexto inicial e virar parte estratégica da construção do que vem a seguir. A gente está aqui pra caminhar com você. Conta com a gente.
+    </p>
+    <div class="milestone-90 reveal">
+      <div class="lab">Marco · dia 90</div>
+      <div class="txt">
+        No fim dos 90 dias, você entra no seu primeiro ciclo de avaliação na TRINCA. É a partir daí que você começa a desenhar seu PDI no Qulture Rocks, junto com Mengue.
+      </div>
+    </div>
+    <div class="signoff">
+      <span>TRINCA · We build what's next</span>
+      <span>Maio 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOCUS BAR -->
+<div class="focus-bar" id="focusBar">
+  <div class="fb-icon">★</div>
+  <div class="fb-text">
+    <div class="fb-lab">Próxima ação em foco</div>
+    <div class="fb-title" id="fbTitle">Acessar o Slack e entrar nos canais do time Wiz</div>
+  </div>
+  <button id="fbGo">
+    <span>Vamos</span>
+    <span>→</span>
+  </button>
+  <button class="fb-close" id="fbClose" aria-label="Fechar">×</button>
+</div>
+
+<div class="toast-area" id="toastArea"></div>
+<canvas id="confetti-canvas"></canvas>
+
+<script>
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach((el) => io.observe(el));
+  })();
+
+  const STATE = { xp: 0, level: 1, xpPerLevel: 100 };
+
+  function narrativeFor(xp) {
+    const xpInLevel = xp % STATE.xpPerLevel;
+    const toNext = STATE.xpPerLevel - xpInLevel;
+    if (xp === 0) return { msg: 'Mal começou,', accent: 'mas vai longe.' };
+    if (toNext <= 30 && toNext > 0) {
+      return { msg: 'Quase lá:', accent: `${toNext} pts pro nível ${STATE.level + 1}.` };
+    }
+    if (xp < 50) return { msg: 'Pegando o ritmo.', accent: 'Continua.' };
+    if (xp < 150) return { msg: 'No flow agora.', accent: 'Belíssimo.' };
+    if (xp < 250) return { msg: 'Andando firme.', accent: 'Bora pro próximo.' };
+    return { msg: 'Você não para.', accent: 'A TRINCA agradece.' };
+  }
+
+  function showToast({label, title, points}) {
+    const area = document.getElementById('toastArea');
+    const el = document.createElement('div');
+    el.className = 'toast';
+    el.innerHTML = `
+      <div class="tbadge">★</div>
+      <div class="ttext">
+        <div class="label">${label}</div>
+        <div class="title">${title}</div>
+        ${points ? `<div class="points">+${points} pts</div>` : ''}
+      </div>
+    `;
+    area.appendChild(el);
+    setTimeout(() => el.remove(), 4400);
+  }
+
+  function updateHUD(animateBump) {
+    const xpInLevel = STATE.xp % STATE.xpPerLevel;
+    const lvl = Math.floor(STATE.xp / STATE.xpPerLevel) + 1;
+    if (lvl > STATE.level) {
+      STATE.level = lvl;
+      showToast({label: 'Level Up', title: `Nível ${lvl} alcançado`, points: 0});
+    }
+    const levelEl = document.getElementById('hudLevel');
+    levelEl.textContent = STATE.level;
+    if (animateBump) {
+      levelEl.classList.add('bump');
+      setTimeout(() => levelEl.classList.remove('bump'), 400);
+    }
+    document.querySelector('#xpbar').style.setProperty('--xp', (xpInLevel / STATE.xpPerLevel * 100) + '%');
+    const narr = narrativeFor(STATE.xp);
+    document.getElementById('hudNarrative').innerHTML = `${narr.msg} <span class="accent">${narr.accent}</span>`;
+    document.getElementById('statXP').textContent = STATE.xp;
+  }
+
+  function spawnPoints(originEl, value) {
+    const rect = originEl.getBoundingClientRect();
+    const fly = document.createElement('div');
+    fly.className = 'points-fly';
+    fly.textContent = `+${value} pts`;
+    document.body.appendChild(fly);
+    const startX = rect.right + 8;
+    const startY = rect.top - 4;
+    fly.style.left = startX + 'px';
+    fly.style.top = startY + 'px';
+    const hudRect = document.getElementById('hud').getBoundingClientRect();
+    const dx = hudRect.left + 20 - startX;
+    const dy = hudRect.top + 20 - startY;
+    fly.animate([
+      { transform: 'translate(0,0) scale(1)', opacity: 1 },
+      { transform: `translate(${dx*0.3}px, ${dy*0.2}px) scale(1.2)`, opacity: 1, offset: 0.4 },
+      { transform: `translate(${dx}px, ${dy}px) scale(0.6)`, opacity: 0 },
+    ], { duration: 900, easing: 'cubic-bezier(.4,1.2,.5,1)' });
+    setTimeout(() => fly.remove(), 900);
+  }
+
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  function fireConfetti() {
+    const pieces = [];
+    const colors = ['#0A00BE', '#000000', '#E8E6FF', '#FFFFFF'];
+    for (let i = 0; i < 90; i++) {
+      pieces.push({
+        x: window.innerWidth / 2 + (Math.random() - 0.5) * 240,
+        y: window.innerHeight / 2,
+        vx: (Math.random() - 0.5) * 16,
+        vy: -Math.random() * 16 - 6,
+        size: 4 + Math.random() * 7,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        rotation: Math.random() * Math.PI * 2,
+        vr: (Math.random() - 0.5) * 0.32,
+      });
+    }
+    let frames = 0;
+    function tick() {
+      frames++;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pieces.forEach(p => {
+        p.x += p.vx; p.y += p.vy; p.vy += 0.4; p.rotation += p.vr;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        ctx.restore();
+      });
+      if (frames < 200) requestAnimationFrame(tick);
+      else ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    tick();
+  }
+
+  (function () {
+    document.querySelectorAll('.quest-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const wasDone = item.dataset.done === 'true';
+        item.dataset.done = (!wasDone).toString();
+        const xp = parseInt(item.dataset.xp, 10);
+        if (!wasDone) {
+          STATE.xp += xp;
+          spawnPoints(item.querySelector('.checkbox'), xp);
+        } else {
+          STATE.xp -= xp;
+          if (STATE.xp < 0) STATE.xp = 0;
+        }
+        updateHUD(!wasDone);
+
+        const block = item.closest('.quest-block');
+        const doneCount = block.querySelectorAll('.quest-item[data-done="true"]').length;
+        const totalCount = block.querySelectorAll('.quest-item').length;
+        block.querySelector('.qb-done').textContent = doneCount;
+        const pct = (doneCount / totalCount) * 100;
+        block.querySelector('.quest-mini-bar').style.setProperty('--qp', pct + '%');
+
+        const remaining = totalCount - doneCount;
+        block.classList.toggle('almost', remaining > 0 && remaining <= 2 && doneCount > 0);
+
+        const wasComplete = block.dataset.complete === 'true';
+        const isComplete = doneCount === totalCount;
+        block.dataset.complete = isComplete.toString();
+        if (isComplete && !wasComplete) {
+          const blockName = block.querySelector('.quest-title').textContent;
+          showToast({ label: 'Conquista desbloqueada', title: blockName, points: 50 });
+          STATE.xp += 50;
+          updateHUD(true);
+          fireConfetti();
+          block.classList.remove('almost');
+          block.classList.add('unlocked-anim');
+          setTimeout(() => block.classList.remove('unlocked-anim'), 700);
+        }
+        updateGlobalState();
+      });
+    });
+  })();
+
+  function updateGlobalState() {
+    const doneItems = document.querySelectorAll('.quest-item[data-done="true"]').length;
+    const totalBlocks = document.querySelectorAll('.quest-block').length;
+    const doneBlocks = document.querySelectorAll('.quest-block[data-complete="true"]').length;
+
+    document.getElementById('statMissoesNum').textContent = doneItems;
+    document.getElementById('statConquistas').innerHTML = `${doneBlocks}<span class="of">/${totalBlocks}</span>`;
+    document.getElementById('statXP').textContent = STATE.xp;
+
+    const blockPct = doneBlocks / totalBlocks;
+    const pathDone = document.getElementById('pathDone');
+    if (pathDone) {
+      const length = 80;
+      pathDone.style.strokeDashoffset = Math.max(0, length - length * blockPct * 2);
+    }
+
+    const walker = document.getElementById('mapWalker');
+    const cp1 = document.getElementById('cp-1');
+    const cp2 = document.getElementById('cp-2');
+    const cp3 = document.getElementById('cp-3');
+
+    if (blockPct >= 1) {
+      cp1.dataset.state = 'done'; cp2.dataset.state = 'done'; cp3.dataset.state = 'current';
+      walker.style.left = '86%'; walker.style.top = '36%';
+    } else if (blockPct >= 0.5) {
+      cp1.dataset.state = 'done'; cp2.dataset.state = 'current'; cp3.dataset.state = 'locked';
+      walker.style.left = '50%'; walker.style.top = '64%';
+    } else {
+      cp1.dataset.state = 'current'; cp2.dataset.state = 'locked'; cp3.dataset.state = 'locked';
+      walker.style.left = '14%'; walker.style.top = '38%';
+    }
+
+    updateFocusBar();
+  }
+
+  let focusClosed = false;
+  function updateFocusBar() {
+    const bar = document.getElementById('focusBar');
+    if (focusClosed) { bar.classList.add('hidden'); return; }
+    const next = document.querySelector('.quest-item[data-done="false"]');
+    if (!next) { bar.classList.add('hidden'); return; }
+    bar.classList.remove('hidden');
+    document.getElementById('fbTitle').textContent = next.querySelector('.quest-text').textContent;
+    document.getElementById('fbGo').onclick = () => {
+      next.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const cb = next.querySelector('.checkbox');
+      setTimeout(() => {
+        cb.animate([
+          { boxShadow: '0 0 0 0 rgba(10,0,190,0.6)' },
+          { boxShadow: '0 0 0 16px rgba(10,0,190,0)' },
+        ], { duration: 900, iterations: 2 });
+      }, 700);
+    };
+  }
+  document.getElementById('fbClose').addEventListener('click', () => {
+    focusClosed = true;
+    document.getElementById('focusBar').classList.add('hidden');
+  });
+
+  updateHUD(false);
+  updateGlobalState();
+
+  (function () {
+    const hero = document.querySelector('.hero');
+    const bar = document.getElementById('focusBar');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !focusClosed) bar.classList.add('hidden');
+        else if (!focusClosed) bar.classList.remove('hidden');
+      });
+    }, { threshold: 0.4 });
+    io.observe(hero);
+  })();
+</script>
+
+</body>
+</html>
